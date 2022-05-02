@@ -1,19 +1,19 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Card from "./components/Card";
+import Destination from "./components/Destination";
 import data from "./data/data";
 
 export default function App() {
-  const cards = data.map((item) => {
-    return <Card key={item.id} {...item} />;
+  const destinations = data.map((item) => {
+    return <Destination key={item.id} {...item} />;
   });
 
   return (
     <div>
       <Navbar />
       <Hero />
-      <section className="cards-list">{cards}</section>
+      <section>{destinations}</section>
     </div>
   );
 }
