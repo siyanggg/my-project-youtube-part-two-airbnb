@@ -2,19 +2,28 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 
 export default function App() {
-  const [things, setThings] = useState(["Thing 1", "Thing 2"]);
+  const [count, setCount] = useState(0);
 
-  function addItem() {
-    const newThingText = `Thing ${things.length + 1}`;
-    setThings((prevState) => [...prevState, newThingText]);
+  function minus() {
+    setCount(function (oldValue) {
+      return oldValue - 1;
+    });
   }
 
-  const thingsElements = things.map((thing) => <p key={thing}>{thing}</p>);
-
+  function plus() {
+    setCount((prevCount) => prevCount + 1);
+  }
   return (
-    <div>
-      <button onClick={addItem}>Add Item</button>
-      {thingsElements}
+    <div className="counter">
+      <button className="counter--minus" onClick={minus}>
+        –
+      </button>
+      <div className="counter--count">
+        <h1>{count}</h1>
+      </div>
+      <button className="counter--plus" onClick={plus}>
+        +
+      </button>
     </div>
   );
 }
