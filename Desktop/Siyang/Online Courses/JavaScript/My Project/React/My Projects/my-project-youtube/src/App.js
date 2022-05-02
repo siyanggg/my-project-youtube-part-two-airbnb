@@ -8,10 +8,10 @@ import Main from ".Component/Main";
 
 function App() {
   return (
-    <div>
-      <Header />
+    <div className="container">
+      {/* <Header />
       <Main />
-      <Footer />
+      <Footer /> */}
       <Navbar />
     </div>
   );
