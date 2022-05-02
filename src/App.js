@@ -1,32 +1,30 @@
 import React from "react";
 import Contact from "./components/Contact";
+import Joke from "./components/Joke";
 
+/** Joke component */
 function App() {
   return (
-    <div className="contacts">
-      <Contact
-        img="./images/mr-whiskerson.png"
-        name="Mr. Whiskerson"
-        phone="(212) 555-1234"
-        email="mr.whiskaz@catnap.meow"
+    <div>
+      <Joke
+        Setup="I got my daughter a fridge for her birthday."
+        Punchline="I can't wait to see her face light up when she opens it."
       />
-      <Contact
-        img="./images/fluffykins.png"
-        name="Fluffykins"
-        phone="(212) 555-2345"
-        email="fluff@me.com"
+      <Joke
+        Setup="How did the hacker escape the police?"
+        Punchline="He just ransomware!"
       />
-      <Contact
-        img="./images/felix.png"
-        name="Felix"
-        phone="(212) 555-4567"
-        email="thecat@hotmail.com"
+      <Joke
+        Setup="Why don't pirates travel on mountain roads?"
+        Punchline="Scurvy."
       />
-      <Contact
-        img="./images/pumpkin.png"
-        name="Pumpkin"
-        phone="(0800) CAT KING"
-        email="pumpkin@scrimba.com"
+      <Joke
+        Setup="Why do bees stay in the hive in the winter?"
+        Punchline="Swarm."
+      />
+      <Joke
+        Setup="What's the best thing about Switzerland?"
+        Punchline="I don't know, but the flag is a big plus!"
       />
     </div>
   );
