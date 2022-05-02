@@ -1,6 +1,7 @@
 import React from "react";
 import Header from "./components/Header";
 import Meme from "./components/Meme";
+import memesData from "./data/memesData";
 /**
  * Challenge:
  * - Create a Meme component.
@@ -9,6 +10,9 @@ import Meme from "./components/Meme";
  * - Don't worry about adding any functionality yet
  */
 export default function App() {
+  // const memes = memesData.map((item) => {
+  //   return <Meme key={item.id} {...item} />;
+  // });
   return (
     <div>
       <Header />
