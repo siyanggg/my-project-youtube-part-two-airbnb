@@ -2,32 +2,50 @@ import React from "react";
 import Contact from "./components/Contact";
 import Joke from "./components/Joke";
 
-/** Joke component */
-function App() {
+/*
+Challenge: Think critically - how would you pass in a prop that wasn't
+a string datatype.
+
+E.g. Say you want each Joke component to receive an "upvotes" and "downvotes"
+prop that is a number, as well as a prop with an array of comments, and a boolean
+of whether the joke is a pun (`isPun`).
+*/
+
+export default function App() {
   return (
     <div>
       <Joke
-        Setup="I got my daughter a fridge for her birthday."
-        Punchline="I can't wait to see her face light up when she opens it."
+        punchline="It’s hard to explain puns to kleptomaniacs because they always take things literally."
+        isPun={true}
+        upvotes={10}
+        downvotes={2}
+        comments={[{ author: "", body: "", title: "" }]}
       />
       <Joke
-        Setup="How did the hacker escape the police?"
-        Punchline="He just ransomware!"
+        setup="I got my daughter a fridge for her birthday."
+        punchline="I can't wait to see her face light up when she opens it."
+        isPun={false}
       />
       <Joke
-        Setup="Why don't pirates travel on mountain roads?"
-        Punchline="Scurvy."
+        setup="How did the hacker escape the police?"
+        punchline="He just ransomware!"
+        isPun={true}
       />
       <Joke
-        Setup="Why do bees stay in the hive in the winter?"
-        Punchline="Swarm."
+        setup="Why don't pirates travel on mountain roads?"
+        punchline="Scurvy."
+        isPun={true}
       />
       <Joke
-        Setup="What's the best thing about Switzerland?"
-        Punchline="I don't know, but the flag is a big plus!"
+        setup="Why do bees stay in the hive in the winter?"
+        punchline="Swarm."
+        isPun={true}
+      />
+      <Joke
+        setup="What's the best thing about Switzerland?"
+        punchline="I don't know, but the flag is a big plus!"
+        isPun={false}
       />
     </div>
   );
 }
-
-export default App;

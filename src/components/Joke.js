@@ -1,10 +1,12 @@
 import React from "react";
 
 export default function Joke(props) {
+  console.log(props.comments);
   return (
     <div>
-      <p>{props.Setup}</p>
-      <p>{props.Punchline}</p>
+      {props.setup ? <h3>Setup: {props.setup}</h3> : "No Setup."}
+      <p>{props.punchline}</p>
+      <hr />
     </div>
   );
 }
