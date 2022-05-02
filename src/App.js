@@ -1,22 +1,20 @@
-import React from "react";
-import Header from "./components/Header";
-import Meme from "./components/Meme";
-import memesData from "./data/memesData";
-/**
- * Challenge:
- * - Create a Meme component.
- * - Inside the Meme component, render a styled form
- *   with our 2 inputs and the button.
- * - Don't worry about adding any functionality yet
- */
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
+
 export default function App() {
-  // const memes = memesData.map((item) => {
-  //   return <Meme key={item.id} {...item} />;
-  // });
+  const [things, setThings] = useState(["Thing 1", "Thing 2"]);
+
+  function addItem() {
+    const newThingText = `Thing ${things.length + 1}`;
+    setThings((prevState) => [...prevState, newThingText]);
+  }
+
+  const thingsElements = things.map((thing) => <p key={thing}>{thing}</p>);
+
   return (
     <div>
-      <Header />
-      <Meme />
+      <button onClick={addItem}>Add Item</button>
+      {thingsElements}
     </div>
   );
 }
