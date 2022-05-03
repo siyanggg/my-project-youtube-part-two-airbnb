@@ -1,32 +1,24 @@
-import { React, useState } from "react";
-import boxes from "./data/boxes";
-import Box from "./components/Box";
+import { React, useEffect, useState } from "react";
 
-export default function App(props) {
-  const [squares, setSquares] = useState(boxes);
+export default function App() {
+  const [starWarsData, setStarWarsData] = useState({});
+  const [count, setCount] = useState(0);
 
-  // goal is to give the toggle function the ability to know which box was clicked,
-  // so we can correctly update the state array.
+  // console.log("Component rendered");
 
-  function toggle(id) {
-    setSquares((prevSquares) => {
-      return prevSquares.map((square) => {
-        return square.id === id ? { ...square, on: !square.on } : square;
-      });
-    });
-  }
-
-  // const squareElements = squares.map((square) => (
-  //   <Box on={squares.on} key={square.id} />
-  // ));
-
-  const squareElements = squares.map((square) => (
-    <Box key={square.id} on={square.on} toggle={() => toggle(square.id)} />
-  ));
+  useEffect(() => {
+    fetch("https://swapi.dev/api/people/1")
+      .then((res) => res.json())
+      .then((data) => setStarWarsData(data));
+  }, []);
 
   return (
-    <main>
-      <h1>{squareElements}</h1>
-    </main>
+    <div>
+      <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
+      <h2>The count is {count}</h2>
+      <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+        Add
+      </button>
+    </div>
   );
 }
