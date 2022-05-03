@@ -30,6 +30,18 @@ export default function Meme() {
       .then((data) => setAllMemes(data.data.memes));
   }, []);
 
+  /** async function
+   * 
+   useEffect(() => {
+     async function getMemes() {
+       const res = await fetch("https://api.imgflip.com/get_memes");
+       const data = await res.json();
+       setAllMemes(data.data.memes);
+      }
+      getMemes();
+    }, []);
+  */
+
   function getMemeImage() {
     const randomNumber = Math.floor(Math.random() * allMemes.length);
     const url = allMemes[randomNumber].url;
