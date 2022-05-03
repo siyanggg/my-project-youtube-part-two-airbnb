@@ -1,4 +1,5 @@
 import { React, useState } from "react";
+import Star from "./components/Star";
 
 export default function App() {
   const [contact, setContact] = useState({
@@ -8,21 +9,23 @@ export default function App() {
     email: "itsmyrealname@example.com",
     isFavorite: false,
   });
+
   /**
-   * Challenge: Fill in the values in the markup
-   * using the properties of our state object above
-   * (Ignore `isFavorite` for now)
+   * Challenge: Move the star image into its own component
+   * - It should receive a prop called `isFilled` that it
+   *   uses to determine which icon it will display
+   * - Import and render that component, passing the value of
+   *   `isFavorite` to the new `isFilled` prop.
+   * - Don't worry about the abiliity to flip this value quite yet.
+   *   Instead, you can test if it's working by manually changing
+   *   `isFavorite` in state above.
    */
 
-  let starIcon = contact.isFavorite ? "star-filled.png" : "star-empty.png";
-
-  function toggleFavourite() {
-    setContact((prevContact) => {
-      return {
-        ...preContact,
-        isFavourite: preContact.isFavorite,
-      };
-    });
+  function toggleFavorite() {
+    setContact((prevContact) => ({
+      ...prevContact,
+      isFavorite: !prevContact.isFavorite,
+    }));
   }
 
   return (
@@ -30,14 +33,9 @@ export default function App() {
       <article className="card">
         <img src="./images/user.png" className="card--image" />
         <div className="card--info">
-          <img
-            src={`..images/${starIcon}`}
-            className="card--favorite"
-            onClick={toggleFavorite}
-          />
+          <Star isFilled={contact.isFavorite} handleClick={toggleFavorite} />
           <h2 className="card--name">
-            {contact.firstName}
-            {contact.lastName}
+            {contact.firstName} {contact.lastName}
           </h2>
           <p className="card--contact">{contact.phone}</p>
           <p className="card--contact">{contact.email}</p>
