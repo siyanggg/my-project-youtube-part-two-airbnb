@@ -3,52 +3,50 @@
 }
 
 body {
-    font-family: "Karla", sans-serif;
+    background-color: whitesmoke;
     margin: 0;
+    font-family: "Inter", sans-serif;
 }
 
 main {
-    padding: 36px;
-}
-
-.header {
+    height: 100vh;
     display: flex;
+    justify-content: center;
     align-items: center;
-    height: 65px;
-    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
-    color: white;
-    padding: 20px;
 }
 
-.header--image {
-    height: 100%;
-    margin-right: 6px;
+.card {
+    width: 200px;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    height: 350px;
+    box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
+    -webkit-box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
+    -moz-box-shadow: 5px 5px 5px 1px rgba(120,120,120,0.44);
 }
 
-.header--title {
-    font-size: 1.25rem;
-    margin-right: auto;
+.card--image {
+    width: 100%;
+    padding: 10%;
+    padding-bottom: 0;
 }
 
-.header--project {
+.card--name {
+    margin-block: 13px;
+    color: #333333;
+}
+
+.card--info {
+    padding: 10px;
+}
+
+.card--favorite {
+    width: 25px;
+    cursor: pointer;
+}
+
+.card--contact {
     font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.form {
-    display: grid;
-    grid-template: 40px 40px / 1fr 1fr;
-    gap: 17px;
-}
-
-.form--inputs {
-    font-family: "Karla", sans-serif;
-    border-radius: 5px;
-    border: 1px solid #D5D4D8;
-}
-
-.form--button {
-    grid-column: 1 / -1;
-    font-family: "Karla", sans-serif;
-    border-radius: 5px;
+    color: gray;
+    margin-block: 7px;
 }
