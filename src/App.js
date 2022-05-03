@@ -6,7 +6,7 @@ export default function App() {
 
   function addItem() {
     const newThingText = `Thing ${things.length + 1}`;
-    setThings((prevState) => [...prevState, newThingText]);
+    setThings((preThingsArray) => [...preThingsArray, newThingText]);
   }
 
   const thingsElements = things.map((thing) => <p key={thing}>{thing}</p>);
