@@ -1,28 +1,17 @@
 import { React, useState } from "react";
-import Count from "./components/Count";
+import boxes from "./data/boxes";
+import Box from "./components/Box";
 
-export default function App() {
-  const [count, setCount] = useState(0);
+export default function App(props) {
+  const [squares, setsquares] = useState(boxes);
 
-  function add() {
-    setCount((prevCount) => prevCount + 1);
-  }
-
-  function subtract() {
-    setCount((prevCount) => prevCount - 1);
-  }
-
-  console.log("App component rendered.");
+  const squareElements = squares.map((square) => (
+    <Box on={squares.on} key={square.id} />
+  ));
 
   return (
-    <div className="counter">
-      <button className="counter--minus" onClick={subtract}>
-        –
-      </button>
-      <Count number={count} />
-      <button className="counter--plus" onClick={add}>
-        +
-      </button>
-    </div>
+    <main>
+      <h1>{squareElements}</h1>
+    </main>
   );
 }
