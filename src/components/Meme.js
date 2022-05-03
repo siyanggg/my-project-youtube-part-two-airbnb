@@ -15,10 +15,12 @@ export default function Meme(props) {
     const memesArray = allMemeImages.data.memes;
     const randomNumber = Math.floor(Math.random() * memesArray.length);
     const url = memesArray[randomNumber].url;
-    setMeme((prevMeme) => ({
-      ...preMeme,
-      randomImage: url,
-    }));
+    setMeme((prevMeme) => {
+      return {
+        ...prevMeme,
+        randomImage: url,
+      };
+    });
     console.log("new image is: ", memesArray[randomNumber].url);
   }
 
@@ -31,7 +33,7 @@ export default function Meme(props) {
           Get a new meme image 🖼
         </button>
       </div>
-      <img src={memeImage} className="meme--image" />{" "}
+      <img src={meme.randomImage} className="meme--image" />{" "}
     </main>
   );
 }
