@@ -1,14 +1,24 @@
-import React from "react";
-import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import Card from "./components/Card";
+import { React, useState } from "react";
+import WindowTracker from "./components/WindowTracker";
 
 export default function App() {
-  // <Hero />
+  /**
+   * Challenge:
+   * 1. Create state called `show`, default to `true`
+   * 2. When the button is clicked, toggle `show`
+   * 3. Only display `<WindowTracker>` if `show` is `true`
+   */
+
+  const [show, setShow] = useState(true);
+
+  function toggle() {
+    setShow((prevShow) => !prevShow);
+  }
+
   return (
-    <div>
-      <Navbar />
-      <Card />
+    <div className="container">
+      <button onClick={toggle}>Toggle WindowTracker</button>
+      {show && <WindowTracker />}
     </div>
   );
 }
