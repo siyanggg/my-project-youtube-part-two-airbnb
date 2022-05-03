@@ -3,10 +3,36 @@ import boxes from "./data/boxes";
 import Box from "./components/Box";
 
 export default function App(props) {
-  const [squares, setsquares] = useState(boxes);
+  const [squares, setSquares] = useState(boxes);
+
+  // goal is to give the toggle function the ability to know which box was clicked,
+  // so we can correctly update the state array.
+
+  function toggle(id) {
+    setSquares((prevSquares) => {
+      const newSquares = [];
+      for (let i = 0; i < prevSquares.length; i++) {
+        const currentSquare = prevSquares[i];
+        if (currentSquare.id === id) {
+          const updatedSquare = {
+            ...currentSquare,
+            on: !currentSquare.on,
+          };
+          newSquares.push(updatedSquare);
+        } else {
+          newSquares.push(currentSquare);
+        }
+      }
+      return newSquares;
+    });
+  }
+
+  // const squareElements = squares.map((square) => (
+  //   <Box on={squares.on} key={square.id} />
+  // ));
 
   const squareElements = squares.map((square) => (
-    <Box on={squares.on} key={square.id} />
+    <Box key={square.id} id={square.id} on={square.on} toggle={toggle} />
   ));
 
   return (
