@@ -1,9 +1,8 @@
 import { React, useState } from "react";
-import JokesData from "../../../data/jokesData/JokesData";
 
 export default function JokeComponent(props) {
   const { setup, punchline } = props;
-  const [isShown, setIsShown] = useState(false);
+  const [isShown, setIsShown] = useState(true);
   const [showPunchline, setShowPunchline] = useState("Show Punchline");
 
   function toggleShown() {
