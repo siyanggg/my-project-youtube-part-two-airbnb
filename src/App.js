@@ -7,6 +7,8 @@ import Joke from "./components/Joke/Joke";
 import Meme from "./components/Meme/Meme";
 import MessageUnread from "./components/MessageUnread/MessageUnread";
 import UseReducerHook from "./components/UseReducerHook/UseReducerHook";
+import UseReducerHookIncrement from "./components/UseReducerHook/UseReducerHookIncrement";
+import UseReducerHookTodos from "./components/UseReducerHook/UseReducerHookTodos";
 
 import BoxData from "./data/boxData/BoxData";
 import MemesData from "./data/memesData/MemesData";
@@ -31,6 +33,14 @@ export default function App() {
     <div>
       <h1>UseReducer Hook</h1>
       <UseReducerHook />
+      <hr />
+
+      <h1>UseReducer Hook Increment</h1>
+      <UseReducerHookIncrement />
+      <hr />
+
+      <h1>UseReducer Hook Todos</h1>
+      <UseReducerHookTodos />
       <hr />
 
       <h1>Counter Example</h1>

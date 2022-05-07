@@ -1,4 +1,5 @@
 import { React, useEffect, useState, useReducer } from "react";
+// https://www.youtube.com/watch?v=kK_Wqx3RnHk&list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h&index=6
 
 export default function UseReducerHook() {
   const initialState = {
