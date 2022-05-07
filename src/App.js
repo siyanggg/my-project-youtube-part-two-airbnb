@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from "react";
+import { React, useEffect, useState, useReducer } from "react";
 import Box from "./components/Box/Box";
 import Counter from "./components/Counter/Counter";
 import Form from "./components/Form/Form";
@@ -6,6 +6,7 @@ import Header from "./components/General/Header";
 import Joke from "./components/Joke/Joke";
 import Meme from "./components/Meme/Meme";
 import MessageUnread from "./components/MessageUnread/MessageUnread";
+import UseReducerHook from "./components/UseReducerHook/UseReducerHook";
 
 import BoxData from "./data/boxData/BoxData";
 import MemesData from "./data/memesData/MemesData";
@@ -28,6 +29,10 @@ export default function App() {
 
   return (
     <div>
+      <h1>UseReducer Hook</h1>
+      <UseReducerHook />
+      <hr />
+
       <h1>Counter Example</h1>
       <Counter />
       <hr />
