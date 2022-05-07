@@ -1,21 +1,20 @@
 import { React, useEffect, useState } from "react";
-// import Box from "./components/Box";
-// import Count from "./components/Count";
-// import Form from "./components/Form";
-// import Header from "./components/General";
-// import Joke from "./components/Joke";
-// import Meme from "./components/Meme";
-
-// import jokesData from "./data/jokesData";
-// import boxData from "./data/boxData";
-// import memeData from "./data/memeData";
 import Box from "./components/Box";
+import Count from "./components/Count";
+import Form from "./components/Form";
+import Header from "./components/General";
+import Joke from "./components/Joke";
+import Meme from "./components/Meme";
+
+import JokesData from "./data/jokesData";
+import BoxData from "./data/boxData";
+import MemeData from "./data/memeData";
 
 export default function App() {
   const [starWarsData, setStarWarsData] = useState({});
   const [count, setCount] = useState(0);
   const [messages, setMessages] = useState(["a", "b"]);
-  const [squares, setSquares] = useState(boxData);
+  const [squares, setSquares] = useState(BoxData);
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -43,12 +42,12 @@ export default function App() {
   }, [count]);
 
   // joke
-  const jokeElements = jokesData.map((joke) => {
+  const jokeElements = JokesData.map((joke) => {
     return <Joke setup={joke.setup} punchline={joke.punchline} />;
   });
 
   // meme
-  const memes = memeData.map((item) => {
+  const memes = MemeData.map((item) => {
     return <Meme key={item.id} {...item} />;
   });
 
@@ -97,7 +96,7 @@ export default function App() {
       </button>
       <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
 
-      {/* <div>{jokeElements}</div> */}
+      <div>{jokeElements}</div>
       {/* <div>
         <Header />
         <Meme />
