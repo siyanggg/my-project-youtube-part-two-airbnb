@@ -7,17 +7,11 @@ import Joke from "./components/Joke/Joke";
 import Meme from "./components/Meme/Meme";
 import MessageUnread from "./components/MessageUnread/MessageUnread";
 
-import JokesData from "./data/jokesData/JokesData";
 import BoxData from "./data/boxData/BoxData";
 import MemesData from "./data/memesData/MemesData";
 
 export default function App() {
   const [squares, setSquares] = useState(BoxData);
-
-  // joke
-  const jokeElements = JokesData.map((joke) => {
-    return <Joke setup={joke.setup} punchline={joke.punchline} />;
-  });
 
   // box
   function toggle(id) {
@@ -34,20 +28,26 @@ export default function App() {
 
   return (
     <div>
+      <h1>Counter Example</h1>
       <Counter />
       <hr />
-      <h1>Joke example:</h1>
-      <div>{jokeElements}</div>
 
+      <h1>Joke example:</h1>
+      <Joke />
+      <hr />
+
+      <h1>Meme example</h1>
       <div>
         <Header />
         <Meme />
       </div>
       <hr />
 
+      <h1>Form example</h1>
       <Form />
       <hr />
 
+      <h1>MessageUnread example</h1>
       <MessageUnread />
       <hr />
 

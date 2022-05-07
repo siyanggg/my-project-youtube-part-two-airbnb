@@ -1,23 +1,11 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
+import JokeComponent from "./component/JokeComponent";
+import JokesData from "../../data/jokesData/JokesData";
 
-export default function Joke(props) {
-  const [isShown, setIsShown] = useState(false);
-  const [showPunchline, setShowPunchline] = useState("Show Punchline");
+export default function Joke() {
+  const jokeElements = JokesData.map((joke) => {
+    return <JokeComponent setup={joke.setup} punchline={joke.punchline} />;
+  });
 
-  function toggleShown() {
-    setIsShown((prevIsShown) => !prevIsShown);
-  }
-
-  console.log(props.comments);
-  return (
-    <div>
-      {props.setup ? <h3>Setup: {props.setup}</h3> : "No Setup."}
-      <p>{isShown && props.punchline}</p>
-      <button onClick={toggleShown}>
-        {isShown ? "Hide" : "Show"} Punchline
-      </button>
-      <h3>{isShown}</h3>
-      <hr />
-    </div>
-  );
+  return <div>{jokeElements}</div>;
 }

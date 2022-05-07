@@ -5,7 +5,6 @@ export default function MessageUnread() {
 
   return (
     <div>
-      <h1>Message unread example:</h1>
       {messages.length === 0 ? (
         <h1>You are all caught up!</h1>
       ) : (
