@@ -12,18 +12,7 @@ import BoxData from "./data/boxData/BoxData";
 import MemesData from "./data/memesData/MemesData";
 
 export default function App() {
-  const [starWarsData, setStarWarsData] = useState({});
   const [squares, setSquares] = useState(BoxData);
-
-  // counter
-
-  // api
-  useEffect(() => {
-    console.log("Effect ran");
-    fetch(`https://swapi.dev/api/people/${count}`)
-      .then((res) => res.json())
-      .then((data) => setStarWarsData(data));
-  }, [count]);
 
   // joke
   const jokeElements = JokesData.map((joke) => {

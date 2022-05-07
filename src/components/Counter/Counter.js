@@ -1,8 +1,8 @@
-import { React, useState } from "react";
+import { React, useState, useEffect } from "react";
 
 export default function Counter(props) {
-  const { number } = props;
   const [count, setCount] = useState(0);
+  const [starWarsData, setStarWarsData] = useState({});
 
   console.log("Counter component rendered.");
 
@@ -17,6 +17,14 @@ export default function Counter(props) {
   function reset() {
     setCount(0);
   }
+
+  // api
+  useEffect(() => {
+    console.log("Effect ran");
+    fetch(`https://swapi.dev/api/people/${count}`)
+      .then((res) => res.json())
+      .then((data) => setStarWarsData(data));
+  }, [count]);
   return (
     <div className="counter--count">
       <h1>Counter example:</h1>
