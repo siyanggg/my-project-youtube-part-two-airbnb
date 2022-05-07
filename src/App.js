@@ -13,21 +13,9 @@ import MemesData from "./data/memesData/MemesData";
 
 export default function App() {
   const [starWarsData, setStarWarsData] = useState({});
-  const [count, setCount] = useState(0);
   const [squares, setSquares] = useState(BoxData);
 
   // counter
-  function add() {
-    setCount((prevCount) => prevCount + 1);
-  }
-
-  function subtract() {
-    setCount((prevCount) => prevCount - 1);
-  }
-
-  function reset() {
-    setCount(0);
-  }
 
   // api
   useEffect(() => {
@@ -57,16 +45,11 @@ export default function App() {
 
   return (
     <div>
-      <h1>Count example:</h1>
-      <div>
-        <button onClick={add}>Add</button>
-        <Counter number={count} />
-        <button onClick={subtract}>Subtract</button>
-        <button onClick={reset}>Reset</button>
-      </div>
+      <Counter />
       <hr />
       <h1>Joke example:</h1>
       <div>{jokeElements}</div>
+
       <div>
         <Header />
         <Meme />
