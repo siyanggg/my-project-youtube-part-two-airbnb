@@ -72,21 +72,22 @@ export default function App() {
   //   }
   // }
 
-  // // box
-  // function toggle(id) {
-  //   setSquares((prevSquares) => {
-  //     return prevSquares.map((square) => {
-  //       return square.id === id ? { ...square, on: !square.on } : square;
-  //     });
-  //   });
-  // }
+  // box
+  function toggle(id) {
+    setSquares((prevSquares) => {
+      return prevSquares.map((square) => {
+        return square.id === id ? { ...square, on: !square.on } : square;
+      });
+    });
+  }
 
-  // const squareElements = squares.map((square) => (
-  //   <Box key={square.id} on={square.on} toggle={() => toggle(square.id)} />
-  // ));
+  const squareElements = squares.map((square) => (
+    <Box key={square.id} on={square.on} toggle={() => toggle(square.id)} />
+  ));
 
   return (
     <div>
+      <h1>Count example:</h1>
       <div>
         <button onClick={add}>Add</button>
         <Counter number={count} />
@@ -94,54 +95,58 @@ export default function App() {
         <button onClick={reset}>Reset</button>
       </div>
       <hr />
+      <h1>Joke example:</h1>
       <div>{jokeElements}</div>
       <div>
         <Header />
         <Meme />
       </div>
+      <hr />
 
       {/* <div className="form-container">
         <form className="form" onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Email address"
-            className="form--input"
-            name="email"
-            onChange={handleChange}
-            value={formData.email}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            className="form--input"
-            name="password"
-            onChange={handleChange}
-            value={formData.password}
-          />
-          <input
-            type="password"
-            placeholder="Confirm password"
-            className="form--input"
-            name="passwordConfirm"
-            onChange={handleChange}
-            value={formData.passwordConfirm}
-          />
-
-          <div className="form--marketing">
-            <input
-              id="okayToEmail"
-              type="checkbox"
-              name="joinedNewsletter"
-              onChange={handleChange}
-              checked={formData.joinedNewsletter}
-            />
-            <label htmlFor="okayToEmail">I want to join the newsletter</label>
-          </div>
-          <button className="form--submit">Sign up</button>
+        <input
+        type="email"
+        placeholder="Email address"
+        className="form--input"
+        name="email"
+        onChange={handleChange}
+        value={formData.email}
+        />
+        <input
+        type="password"
+        placeholder="Password"
+        className="form--input"
+        name="password"
+        onChange={handleChange}
+        value={formData.password}
+        />
+        <input
+        type="password"
+        placeholder="Confirm password"
+        className="form--input"
+        name="passwordConfirm"
+        onChange={handleChange}
+        value={formData.passwordConfirm}
+        />
+        
+        <div className="form--marketing">
+        <input
+        id="okayToEmail"
+        type="checkbox"
+        name="joinedNewsletter"
+        onChange={handleChange}
+        checked={formData.joinedNewsletter}
+        />
+        <label htmlFor="okayToEmail">I want to join the newsletter</label>
+        </div>
+        <button className="form--submit">Sign up</button>
         </form>
-      </div>
+      </div> */}
+      <hr />
 
       <div>
+        <h1>Message unread example:</h1>
         {messages.length === 0 ? (
           <h1>You are all caught up!</h1>
         ) : (
@@ -151,10 +156,12 @@ export default function App() {
           </h1>
         )}
       </div>
+      <hr />
 
       <main>
+        <h1>Square toggle example:</h1>
         <h1>{squareElements}</h1>
-      </main> */}
+      </main>
     </div>
   );
 }
