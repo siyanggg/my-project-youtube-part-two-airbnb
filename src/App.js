@@ -5,6 +5,7 @@ import Form from "./components/Form/Form";
 import Header from "./components/General/Header";
 import Joke from "./components/Joke/Joke";
 import Meme from "./components/Meme/Meme";
+import MessageUnread from "./components/MessageUnread/MessageUnread";
 
 import JokesData from "./data/jokesData/JokesData";
 import BoxData from "./data/boxData/BoxData";
@@ -13,14 +14,7 @@ import MemesData from "./data/memesData/MemesData";
 export default function App() {
   const [starWarsData, setStarWarsData] = useState({});
   const [count, setCount] = useState(0);
-  const [messages, setMessages] = useState(["a", "b"]);
   const [squares, setSquares] = useState(BoxData);
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    passwordConfirm: "",
-    joinedNewsLetter: false,
-  });
 
   // counter
   function add() {
@@ -43,34 +37,10 @@ export default function App() {
       .then((data) => setStarWarsData(data));
   }, [count]);
 
-  // // login
-  // function handleChange(event) {
-  //   const { name, value, type, checked } = event.target;
-  //   setFormData((prevFormData) => {
-  //     return {
-  //       ...prevFormData,
-  //       [name]: type === "checkbox" ? checked : value,
-  //     };
-  //   });
-  // }
-
   // joke
   const jokeElements = JokesData.map((joke) => {
     return <Joke setup={joke.setup} punchline={joke.punchline} />;
   });
-
-  // function handleSubmit(event) {
-  //   event.preventDefault();
-  //   if (formData.password === formData.passwordConfirm) {
-  //     console.log("Successfully signed up");
-  //   } else {
-  //     console.log("Passwords do not match");
-  //   }
-
-  //   if (formData.joinedNewsletter) {
-  //     console.log("Thanks for signing up for our newsletter!");
-  //   }
-  // }
 
   // box
   function toggle(id) {
@@ -103,59 +73,10 @@ export default function App() {
       </div>
       <hr />
 
-      {/* <div className="form-container">
-        <form className="form" onSubmit={handleSubmit}>
-        <input
-        type="email"
-        placeholder="Email address"
-        className="form--input"
-        name="email"
-        onChange={handleChange}
-        value={formData.email}
-        />
-        <input
-        type="password"
-        placeholder="Password"
-        className="form--input"
-        name="password"
-        onChange={handleChange}
-        value={formData.password}
-        />
-        <input
-        type="password"
-        placeholder="Confirm password"
-        className="form--input"
-        name="passwordConfirm"
-        onChange={handleChange}
-        value={formData.passwordConfirm}
-        />
-        
-        <div className="form--marketing">
-        <input
-        id="okayToEmail"
-        type="checkbox"
-        name="joinedNewsletter"
-        onChange={handleChange}
-        checked={formData.joinedNewsletter}
-        />
-        <label htmlFor="okayToEmail">I want to join the newsletter</label>
-        </div>
-        <button className="form--submit">Sign up</button>
-        </form>
-      </div> */}
+      <Form />
       <hr />
 
-      <div>
-        <h1>Message unread example:</h1>
-        {messages.length === 0 ? (
-          <h1>You are all caught up!</h1>
-        ) : (
-          <h1>
-            You have {messages.length} unread{" "}
-            {messages.length > 1 ? "messages" : "message"}
-          </h1>
-        )}
-      </div>
+      <MessageUnread />
       <hr />
 
       <main>

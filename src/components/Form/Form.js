@@ -9,6 +9,10 @@ export default function Form() {
     isFriendly: true,
     employment: "",
     favColor: "",
+    email: "",
+    password: "",
+    passwordConfirm: "",
+    joinedNewsLetter: false,
   });
 
   function handleChange(event) {
@@ -23,8 +27,15 @@ export default function Form() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    // submitToApi(formData)
-    console.log(formData);
+    if (formData.password === formData.passwordConfirm) {
+      console.log("Successfully signed up");
+    } else {
+      console.log("Passwords do not match");
+    }
+
+    if (formData.joinedNewsletter) {
+      console.log("Thanks for signing up for our newsletter!");
+    }
   }
 
   return (
@@ -123,6 +134,43 @@ export default function Form() {
       <br />
       <br />
       <button>Submit</button>
+
+      <input
+        type="email"
+        placeholder="Email address"
+        className="form--input"
+        name="email"
+        onChange={handleChange}
+        value={formData.email}
+      />
+      <input
+        type="password"
+        placeholder="Password"
+        className="form--input"
+        name="password"
+        onChange={handleChange}
+        value={formData.password}
+      />
+      <input
+        type="password"
+        placeholder="Confirm password"
+        className="form--input"
+        name="passwordConfirm"
+        onChange={handleChange}
+        value={formData.passwordConfirm}
+      />
+
+      <div className="form--marketing">
+        <input
+          id="okayToEmail"
+          type="checkbox"
+          name="joinedNewsletter"
+          onChange={handleChange}
+          checked={formData.joinedNewsletter}
+        />
+        <label htmlFor="okayToEmail">I want to join the newsletter</label>
+      </div>
+      <button className="form--submit">Sign up</button>
     </form>
   );
 }
