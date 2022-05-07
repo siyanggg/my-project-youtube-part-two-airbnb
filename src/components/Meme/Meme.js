@@ -1,5 +1,5 @@
 import { React, useState } from "react";
-import memesData from "../data/memesData.js";
+import MemesData from "../../data/memesData/MemesData";
 
 export default function Meme(props) {
   // const [memeImage, setMemeImage] = useState("http://i.imgflip.com/1bij.jpg");
@@ -9,7 +9,7 @@ export default function Meme(props) {
     bottomText: "",
     randomImage: "http://i.imgflip.com/1bij.jpg",
   });
-  const [allMemeImages, setAllMemeImages] = useState(memesData);
+  const [allMemeImages, setAllMemeImages] = useState(MemesData);
 
   function getMemeImage() {
     const memesArray = allMemeImages.data.memes;

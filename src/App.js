@@ -1,14 +1,14 @@
 import { React, useEffect, useState } from "react";
-import Box from "./components/Box";
-import Count from "./components/Count";
-import Form from "./components/Form";
-import Header from "./components/General";
-import Joke from "./components/Joke";
-import Meme from "./components/Meme";
+import Box from "./components/Box/Box";
+import Count from "./components/Count/Count";
+import Form from "./components/Form/Form";
+import Header from "./components/General/Header";
+import Joke from "./components/Joke/Joke";
+import Meme from "./components/Meme/Meme";
 
-import JokesData from "./data/jokesData";
-import BoxData from "./data/boxData";
-import MemeData from "./data/memeData";
+import JokesData from "./data/jokesData/JokesData";
+import BoxData from "./data/boxData/BoxData";
+import MemesData from "./data/memesData/MemesData";
 
 export default function App() {
   const [starWarsData, setStarWarsData] = useState({});
@@ -47,7 +47,7 @@ export default function App() {
   });
 
   // meme
-  const memes = MemeData.map((item) => {
+  const memes = MemesData.map((item) => {
     return <Meme key={item.id} {...item} />;
   });
 
