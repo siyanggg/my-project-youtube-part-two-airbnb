@@ -43,11 +43,6 @@ export default function App() {
       .then((data) => setStarWarsData(data));
   }, [count]);
 
-  // meme
-  // const memes = MemesData.map((item) => {
-  //   return <Meme key={item.id} {...item} />;
-  // });
-
   // // login
   // function handleChange(event) {
   //   const { name, value, type, checked } = event.target;
