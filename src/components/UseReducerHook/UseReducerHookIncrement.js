@@ -2,10 +2,13 @@ import { React, useEffect, useState, useReducer } from "react";
 // https://www.youtube.com/watch?v=kK_Wqx3RnHk&list=PLZlA0Gpn_vH8EtggFGERCwMY5u5hOjf-h&index=6
 
 export default function UseReducerHookIncrement() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
   const ACTIONS = {
     INCREMENT: "increment",
     DECREMENT: "decrement",
   };
+
   function reducer(state, action) {
     switch (action.type) {
       case ACTIONS.INCREMENT:
@@ -16,8 +19,6 @@ export default function UseReducerHookIncrement() {
         return state;
     }
   }
-
-  const [state, dispatch] = useReducer(reducer, { count: 0 });
 
   function increment() {
     dispatch({ type: ACTIONS.INCREMENT });

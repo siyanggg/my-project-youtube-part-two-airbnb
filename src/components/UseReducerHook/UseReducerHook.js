@@ -12,6 +12,18 @@ export default function UseReducerHook() {
     selected: 1,
   };
 
+  const [
+    {
+      options,
+      selected,
+      quantity,
+      total,
+      decrementDisabled,
+      incrementDisabled,
+    },
+    dispatch,
+  ] = useReducer(reducer, initialState);
+
   function reduceButtonStates(state) {
     return {
       ...state,
@@ -46,18 +58,6 @@ export default function UseReducerHook() {
         throw new Error(`${action.type} is not a valid action`);
     }
   }
-
-  const [
-    {
-      options,
-      selected,
-      quantity,
-      total,
-      decrementDisabled,
-      incrementDisabled,
-    },
-    dispatch,
-  ] = useReducer(reducer, initialState);
 
   useEffect(() => {
     dispatch({ type: "init" });

@@ -8,6 +8,7 @@ export const ACTIONS = {
   TOGGLE_TODO: "toggle-todo",
   DELETE_TODO: "delete-todo",
 };
+
 export default function UseReducerHookTodos() {
   const [todos, dispatch] = useReducer(reducer, []);
   const [name, setName] = useState("");
@@ -40,13 +41,25 @@ export default function UseReducerHookTodos() {
     setName("");
   }
 
+  function handleChange(event) {
+    const { name, value, type } = event.target;
+    setName((prevName) => {
+      return {
+        ...prevName,
+        [name]: value,
+      };
+    });
+  }
+
   return (
     <>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
+          name="name"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          //   onChange={(e) => setName(e.target.value)}
+          onChange={handleChange}
         />
       </form>
       {todos.map((todo) => {

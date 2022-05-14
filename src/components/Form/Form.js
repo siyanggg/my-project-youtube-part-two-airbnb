@@ -16,6 +16,7 @@ export default function Form() {
   });
 
   function handleChange(event) {
+    // name refers to the input name = "firstName"
     const { name, value, type, checked } = event.target;
     setFormData((prevFormData) => {
       return {
@@ -44,7 +45,9 @@ export default function Form() {
         type="text"
         placeholder="First Name"
         onChange={handleChange}
+        // name should match the useState formdata name-> firstName
         name="firstName"
+        // firstName state is controlled by react, rather than input
         value={formData.firstName}
       />
       <input
